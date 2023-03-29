@@ -24,7 +24,7 @@ module.exports = {
         exclude: /node_modules/,
         options: {
           loader: "tsx",
-          target: "es2015",
+          target: "esnext",
         },
       },
     ],
@@ -39,6 +39,8 @@ module.exports = {
       }),
   ].filter(Boolean),
   devServer: {
+    host: "localhost",
+    port: 3000,
     hot: true,
     open: true,
   },
