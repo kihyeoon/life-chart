@@ -14,7 +14,8 @@
   "license": "ISC",
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "styled-components": "^5.3.9"
   },
   "devDependencies": {
     "@babel/core": "^7.21.4",
@@ -52,7 +53,6 @@
     "prettier": "^2.8.7",
     "react-refresh": "^0.14.0",
     "storybook": "^7.0.0",
-    "styled-components": "^5.3.9",
     "typescript": "^5.0.2",
     "webpack": "^5.76.3",
     "webpack-cli": "^5.0.1",
