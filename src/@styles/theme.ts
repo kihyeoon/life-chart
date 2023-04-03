@@ -1,5 +1,5 @@
-import { COLORS } from "src/@styles/colors";
-import { FONT_SIZE } from "src/@styles/fontSize";
+import { COLORS } from "@src/@styles/colors";
+import { FONT_SIZE } from "@src/@styles/fontSize";
 
 export const LIGHT_MODE_THEME = {
   COLOR: {
