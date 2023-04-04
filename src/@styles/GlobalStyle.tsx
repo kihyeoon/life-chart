@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle, css } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
   /* @import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css); */
@@ -38,6 +38,9 @@ const GlobalStyle = createGlobalStyle`
   }
   body {
     line-height: 1;
+    ${({ theme }) => css`
+      background-color: ${theme.COLOR.BACKGROUND.DEFAULT};
+    `}
   }
   menu, ol, ul {
     list-style: none;
@@ -62,7 +65,9 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     font-family:  'Spoqa Han Sans Neo',"Pretendard Variable", Pretendard, "Noto Sans KR", sans-serif;
     letter-spacing: -0.02em;
-    color: #414141;
+    ${({ theme }) => css`
+      color: ${theme.COLOR.TEXT.DEFAULT};
+    `}
   }
 `;
 
