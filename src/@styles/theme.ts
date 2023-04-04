@@ -1,4 +1,4 @@
-import { COLORS } from "@src/@styles/colors";
+import COLORS from "@src/@styles/colors";
 import { FONT_SIZE } from "@src/@styles/fontSize";
 
 export const LIGHT_MODE_THEME = {
@@ -33,3 +33,5 @@ export const LIGHT_MODE_THEME = {
     CAPTION: FONT_SIZE["10px"],
   },
 } as const;
+
+export const DARK_MODE_THEME = {};
