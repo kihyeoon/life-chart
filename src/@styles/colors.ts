@@ -1,4 +1,4 @@
-export const COLORS = {
+const COLORS = {
   GREY: {
     100: "#181818",
     95: "#121212",
@@ -60,3 +60,5 @@ export const COLORS = {
     30: "#EEEBFF",
   },
 } as const;
+
+export default COLORS;

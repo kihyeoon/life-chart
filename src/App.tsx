@@ -5,12 +5,10 @@ import { LIGHT_MODE_THEME } from "@src/@styles/theme";
 
 function App() {
   return (
-    <>
-      <ThemeProvider theme={LIGHT_MODE_THEME}>
-        <GlobalStyle />
-        <div>hello world!</div>
-      </ThemeProvider>
-    </>
+    <ThemeProvider theme={LIGHT_MODE_THEME}>
+      <GlobalStyle />
+      <div>hello world!</div>
+    </ThemeProvider>
   );
 }
 
