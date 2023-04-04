@@ -1,7 +1,9 @@
-import COLORS from "@src/@styles/colors";
-import { FONT_SIZE } from "@src/@styles/fontSize";
+import { DefaultTheme } from "styled-components";
 
-export const LIGHT_MODE_THEME = {
+import COLORS from "@src/@styles/colors";
+import FONT_SIZE from "@src/@styles/fontSize";
+
+export const LIGHT_MODE_THEME: DefaultTheme = {
   COLOR: {
     PRIMARY: COLORS.BLUE[60],
     SECONDARY: COLORS.GREY[80],
