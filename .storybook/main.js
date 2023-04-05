@@ -1,3 +1,5 @@
+const path = require("path");
+
 module.exports = {
   stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
   addons: [
@@ -12,5 +14,14 @@ module.exports = {
   },
   docs: {
     autodocs: true,
+  },
+  webpackFinal: async (config) => {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      "@src": path.resolve(__dirname, "../src/"),
+      "@public": path.resolve(__dirname, "../public/"),
+    };
+
+    return config;
   },
 };
