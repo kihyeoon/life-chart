@@ -3,7 +3,11 @@ import "styled-components";
 declare module "styled-components" {
   export interface DefaultTheme {
     COLOR: {
-      PRIMARY: string;
+      PRIMARY: {
+        DEFAULT: string;
+        HOVER: string;
+        ACTIVE: string;
+      };
       SECONDARY: string;
       TEXT: {
         DEFAULT: string;
@@ -19,9 +23,12 @@ declare module "styled-components" {
       };
       CONTAINER: {
         PRIMARY: string;
-        DEFAULT: string;
+        SECONDARY: string;
+        TERTIARY: string;
+        TERTIARY_ACTIVE: string;
       };
       BORDER: string;
+      OUTLINE: string;
     };
     FONT_SIZE: {
       TITLE: string;
