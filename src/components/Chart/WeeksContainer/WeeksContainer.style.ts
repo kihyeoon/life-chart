@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.ul`
+export const GridContainer = styled.ul`
   display: grid;
   grid-template-columns: repeat(104, 1fr);
   width: 81.25rem;

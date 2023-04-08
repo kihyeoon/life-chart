@@ -18,7 +18,7 @@ interface Position {
 }
 
 function WeeksContainer({ birthDate, years }: Props) {
-  const weeks = createWeeksArray(birthDate, years);
+  const { weeksArray, typeCount } = createWeeksArray(birthDate, years);
 
   const [showPopover, setShowPopover] = useState<boolean>(false);
   const [popoverPosition, setPopoverPosition] = useState<Position>({
@@ -40,9 +40,10 @@ function WeeksContainer({ birthDate, years }: Props) {
   const handleMouseLeave = () => {
     setShowPopover(false);
   };
+
   return (
-    <Style.Container>
-      {weeks.map((week, index) => (
+    <Style.GridContainer>
+      {weeksArray.map((week, index) => (
         <WeekDot
           key={week.dateRange}
           styleType={week.type}
@@ -53,12 +54,12 @@ function WeeksContainer({ birthDate, years }: Props) {
       ))}
       <Popover
         showPopover={showPopover}
-        age={weeks[dataIndex].age}
-        dateRange={weeks[dataIndex].dateRange}
+        age={weeksArray[dataIndex].age}
+        dateRange={weeksArray[dataIndex].dateRange}
         top={popoverPosition.top}
         left={popoverPosition.left}
       />
-    </Style.Container>
+    </Style.GridContainer>
   );
 }
 
