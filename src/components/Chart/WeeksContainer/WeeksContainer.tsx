@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { MouseEvent, useState } from "react";
 
 import Popover from "@src/components/Chart/Popover/Popover";
 import WeekDot from "@src/components/Chart/WeekDot/WeekDot";
@@ -27,9 +27,9 @@ function WeeksContainer({ birthDate, years }: Props) {
   });
   const [dataIndex, setDataIndex] = useState<number>(0);
 
-  const handleMouseEnter = (event: any) => {
-    setDataIndex(event.currentTarget.getAttribute("data-index"));
-    const rect = event.target.getBoundingClientRect();
+  const handleMouseEnter = (event: MouseEvent<HTMLLIElement>) => {
+    setDataIndex(Number(event.currentTarget.getAttribute("data-index")));
+    const rect = event.currentTarget.getBoundingClientRect();
     setPopoverPosition({
       top: `${rect.top + window.scrollY + rect.height}px`,
       left: `${rect.left + window.scrollX}px`,
@@ -53,10 +53,10 @@ function WeeksContainer({ birthDate, years }: Props) {
       ))}
       <Popover
         showPopover={showPopover}
-        top={popoverPosition.top}
-        left={popoverPosition.left}
         age={weeks[dataIndex].age}
         dateRange={weeks[dataIndex].dateRange}
+        top={popoverPosition.top}
+        left={popoverPosition.left}
       />
     </Style.Container>
   );

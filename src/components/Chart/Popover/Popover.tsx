@@ -1,8 +1,6 @@
-import { AllHTMLAttributes } from "react";
-
 import * as Style from "./Popover.style";
 
-interface Props extends AllHTMLAttributes<HTMLDivElement> {
+interface Props {
   showPopover: boolean;
   age: number;
   dateRange: string;

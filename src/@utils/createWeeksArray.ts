@@ -35,7 +35,7 @@ export function createWeeksArray(
     );
     const currentPassed = currentWeekInMillis < todayInMillis;
 
-    let type = "";
+    let type: "past" | "current" | "future";
     if (currentPassed && todayInMillis < endOfWeek.getTime()) {
       type = "current";
     } else {
