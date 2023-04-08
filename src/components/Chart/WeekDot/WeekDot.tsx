@@ -1,8 +1,10 @@
+import { LiHTMLAttributes } from "react";
+
 import * as Style from "./WeekDot.style";
 
 export type StyleType = "past" | "current" | "future";
 
-export interface WeekDotProps {
+export interface WeekDotProps extends LiHTMLAttributes<HTMLLIElement> {
   styleType: StyleType;
 }
 
