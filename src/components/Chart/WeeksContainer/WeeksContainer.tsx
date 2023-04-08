@@ -3,23 +3,16 @@ import { MouseEvent, useState } from "react";
 import Popover from "@src/components/Chart/Popover/Popover";
 import WeekDot from "@src/components/Chart/WeekDot/WeekDot";
 
-import { createWeeksArray } from "@src/@utils/createWeeksArray";
+import { Week } from "@src/@utils/createWeeksArray";
 
 import * as Style from "./WeeksContainer.style";
-
-interface Props {
-  birthDate: string;
-  years: number;
-}
 
 interface Position {
   top: string;
   left: string;
 }
 
-function WeeksContainer({ birthDate, years }: Props) {
-  const { weeksArray, typeCount } = createWeeksArray(birthDate, years);
-
+function WeeksContainer({ weeksArray }: { weeksArray: Week[] }) {
   const [showPopover, setShowPopover] = useState<boolean>(false);
   const [popoverPosition, setPopoverPosition] = useState<Position>({
     top: "",

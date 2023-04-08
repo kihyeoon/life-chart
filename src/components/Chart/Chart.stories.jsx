@@ -1,12 +1,12 @@
-import WeeksContainer from "./WeeksContainer";
+import Chart from "./Chart";
 
 export default {
-  title: "Chart/WeeksContainer",
-  component: WeeksContainer,
+  title: "Chart/Chart",
+  component: Chart,
 };
 
 function Template(args) {
-  return <WeeksContainer {...args} />;
+  return <Chart {...args} />;
 }
 
 export const PrimaryTemplate = Template.bind({});
