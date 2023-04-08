@@ -1,18 +1,36 @@
-type Week = {
+type WeekType = "past" | "current" | "future";
+
+export interface Week {
   age: number;
   dateRange: string;
-  type: "past" | "current" | "future";
-};
+  type: WeekType;
+}
+
+export interface TypeCount {
+  past: number;
+  current: number;
+  future: number;
+}
+
+interface WeeksArray {
+  weeksArray: Week[];
+  typeCount: TypeCount;
+}
 
 export function createWeeksArray(
   birthday: string,
   expectedAge: number,
-): Week[] {
+): WeeksArray {
   const startDate = new Date(birthday);
   const endDate = new Date(startDate);
   endDate.setFullYear(endDate.getFullYear() + expectedAge);
 
   const weeksArray = [];
+  const typeCount = {
+    past: 0,
+    current: 0,
+    future: 0,
+  };
   const today = new Date();
   const oneWeekInMillis = 7 * 24 * 60 * 60 * 1000;
   const oneYearInMillis = 365.25 * 24 * 60 * 60 * 1000;
@@ -35,12 +53,13 @@ export function createWeeksArray(
     );
     const currentPassed = currentWeekInMillis < todayInMillis;
 
-    let type: "past" | "current" | "future";
+    let type: WeekType;
     if (currentPassed && todayInMillis < endOfWeek.getTime()) {
       type = "current";
     } else {
       type = currentPassed ? "past" : "future";
     }
+    typeCount[type] += 1;
 
     weeksArray.push({
       age: currentAge,
@@ -51,5 +70,5 @@ export function createWeeksArray(
     currentWeekInMillis += oneWeekInMillis;
   }
 
-  return weeksArray;
+  return { weeksArray, typeCount };
 }
