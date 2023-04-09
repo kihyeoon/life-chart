@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import * as Style from "./AgePicker.style";
 
-function DatePicker() {
+function AgePicker() {
   return (
     <label htmlFor="LifeExpectancy">
       몇 살까지 살고 싶으신가요?
@@ -17,4 +17,4 @@ function DatePicker() {
   );
 }
 
-export default DatePicker;
+export default AgePicker;
