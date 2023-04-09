@@ -1,3 +1,5 @@
+import { routers } from "@src/Router";
+import { RouterProvider } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 
 import GlobalStyle from "@src/@styles/GlobalStyle";
@@ -7,7 +9,7 @@ function App() {
   return (
     <ThemeProvider theme={LIGHT_MODE_THEME}>
       <GlobalStyle />
-      <div>hello world!</div>
+      <RouterProvider router={routers} />
     </ThemeProvider>
   );
 }
