@@ -4,27 +4,26 @@ import { StyleType, WeekDotProps } from "./WeekDot";
 
 const styleTable: Record<StyleType, CSSProp<DefaultTheme>> = {
   past: css`
-    background-color: ${({ theme }) => theme.COLOR.TEXT.LIGHT_BLUE};
+    background-color: ${({ theme }) => theme.COLOR.TEXT.BLUE};
   `,
 
   current: css`
     ${({ theme }) => css`
-      background-color: ${theme.COLOR.TEXT.LIGHT_BLUE};
+      background-color: ${theme.COLOR.TEXT.BLUE};
       animation: shine 1.5s infinite;
       @keyframes shine {
         0% {
           opacity: 1;
-          box-shadow: 0 0 5px ${theme.COLOR.TEXT.LIGHT_BLUE};
+          box-shadow: 0 0 5px ${theme.COLOR.TEXT.BLUE};
         }
         50% {
           transform: scale(1.5);
-          box-shadow: 0 0 10px 5px ${theme.COLOR.TEXT.LIGHT_BLUE},
-            0 0 20px ${theme.COLOR.TEXT.LIGHT_BLUE},
-            0 0 30px ${theme.COLOR.TEXT.LIGHT_BLUE};
+          box-shadow: 0 0 10px 5px ${theme.COLOR.TEXT.BLUE},
+            0 0 20px ${theme.COLOR.TEXT.BLUE}, 0 0 30px ${theme.COLOR.TEXT.BLUE};
         }
         100% {
           opacity: 1;
-          box-shadow: 0 0 5px ${theme.COLOR.TEXT.LIGHT_BLUE};
+          box-shadow: 0 0 5px ${theme.COLOR.TEXT.BLUE};
         }
       }
     `}
