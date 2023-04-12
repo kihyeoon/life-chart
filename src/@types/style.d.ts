@@ -13,7 +13,7 @@ declare module "styled-components" {
         DEFAULT: string;
         DISABLED: string;
         PLACEHOLDER: string;
-        LIGHT_BLUE: string;
+        BLUE: string;
         WHITE: string;
       };
       BACKGROUND: {
@@ -25,8 +25,8 @@ declare module "styled-components" {
         PRIMARY: string;
         SECONDARY: string;
         TERTIARY: string;
-        TERTIARY_ACTIVE: string;
       };
+      SHADOW: string;
       BORDER: string;
       OUTLINE: string;
     };

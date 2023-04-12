@@ -1,7 +1,7 @@
 import { ThemeProvider } from "styled-components";
 
 import GlobalStyle from "@src/@styles/GlobalStyle";
-import { LIGHT_MODE_THEME } from "@src/@styles/theme";
+import { DARK_MODE_THEME, LIGHT_MODE_THEME } from "@src/@styles/theme";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -15,7 +15,7 @@ export const parameters = {
 
 export const decorators = [
   (Story) => (
-    <ThemeProvider theme={LIGHT_MODE_THEME}>
+    <ThemeProvider theme={DARK_MODE_THEME}>
       <GlobalStyle />
       <Story />
     </ThemeProvider>

@@ -49,11 +49,11 @@ const styleTable: Record<StyleType, CSSProp<DefaultTheme>> = {
       background-color: transparent;
 
       &: hover {
-        background-color: ${theme.COLOR.CONTAINER.TERTIARY};
+        background-color: ${theme.COLOR.CONTAINER.SECONDARY};
       }
 
       &: active {
-        background-color: ${theme.COLOR.CONTAINER.TERTIARY_ACTIVE};
+        background-color: ${theme.COLOR.CONTAINER.TERTIARY};
       }
     `}
   `,
