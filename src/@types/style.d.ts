@@ -25,8 +25,8 @@ declare module "styled-components" {
         PRIMARY: string;
         SECONDARY: string;
         TERTIARY: string;
-        TERTIARY_ACTIVE: string;
       };
+      SHADOW: string;
       BORDER: string;
       OUTLINE: string;
     };
