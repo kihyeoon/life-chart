@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import { MouseEvent, useState } from "react";
 
 import Popover from "@src/components/Chart/Popover/Popover";
@@ -38,7 +39,7 @@ function WeeksContainer({ weeksArray }: { weeksArray: Week[] }) {
     <Style.GridContainer>
       {weeksArray.map((week, index) => (
         <WeekDot
-          key={week.dateRange}
+          key={`${index}-${week.dateRange}`}
           styleType={week.type}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
