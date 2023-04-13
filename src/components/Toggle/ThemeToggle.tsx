@@ -21,15 +21,15 @@ function ThemeToggle({ menuArr }: Props) {
     <Style.TabContainer>
       <Style.Highlight left={highlight.left} width={highlight.width} />
       <Style.TabMenu>
-        {menuArr.map((name, index) => (
+        {menuArr.map((menu, index) => (
           <li
-            key={`${index.toString()}-${name}`}
+            key={`${index.toString()}-${menu}`}
             id={`${index}`}
             className={currentTab === index ? "focused" : ""}
             onClick={handleBtnClick}
             role="none"
           >
-            {name}
+            {menu}
           </li>
         ))}
       </Style.TabMenu>
