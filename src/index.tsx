@@ -1,4 +1,5 @@
 import App from "@src/App";
+import { ThemeContextProvider } from "@src/context/ThemeContext";
 import React from "react";
 import ReactDOM from "react-dom/client";
 
@@ -7,6 +8,8 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <ThemeContextProvider>
+      <App />
+    </ThemeContextProvider>
   </React.StrictMode>,
 );

@@ -1,49 +1,39 @@
-import { MouseEventHandler, useRef, useState } from "react";
+import { MouseEventHandler } from "react";
+
+import useModeTheme from "@src/hooks/useModeTheme";
 
 import * as Style from "./Toggle.style";
 
 interface Props {
   menuArr: string[];
-  currentIdx: number;
-  onClick: (idx: number) => void;
 }
 
 // currentIdx ==> 지금 선택한 탭의 index
-function Toggle({ menuArr, currentIdx, onClick }: Props) {
-  const menuEl = useRef<HTMLUListElement>(null);
-  const [currentTab, setCurrentTab] = useState(currentIdx);
+function Toggle({ menuArr }: Props) {
+  const { theme, handleToggleTheme } = useModeTheme();
 
-  const [highlight, setHighlight] = useState({
+  const currentTab = theme === "LIGHT" ? 0 : 1;
+
+  const highlight = {
     left: currentTab * 56,
     width: 56,
-  });
+  };
 
   const handleBtnClick: MouseEventHandler<HTMLLIElement> = (e) => {
-    const { id } = e.target as HTMLLIElement;
+    const { id } = e.currentTarget;
     const index = Number(id);
-    setCurrentTab(index);
-
-    // 선택된 Tab Menu에 따라 하이라이트가 이동
-    const left = (menuEl.current?.children[index] as HTMLElement).offsetLeft;
-    const width = (menuEl.current?.children[index] as HTMLElement).offsetWidth;
-
-    setHighlight({
-      left,
-      width,
-    });
-
-    onClick(index);
+    handleToggleTheme(index);
   };
 
   return (
     <Style.TabContainer>
       <Style.Highlight left={highlight.left} width={highlight.width} />
-      <Style.TabMenu ref={menuEl}>
-        {menuArr.map((name, idx) => (
+      <Style.TabMenu>
+        {menuArr.map((name, index) => (
           <li
-            key={`${idx.toString()}-${name}`}
-            id={`${idx}`}
-            className={currentTab === idx ? "focused" : ""}
+            key={`${index.toString()}-${name}`}
+            id={`${index}`}
+            className={currentTab === index ? "focused" : ""}
             onClick={handleBtnClick}
             role="none"
           >
