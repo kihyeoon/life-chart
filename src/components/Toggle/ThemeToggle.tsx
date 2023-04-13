@@ -1,29 +1,21 @@
-import { MouseEventHandler } from "react";
+import useThemeToggle from "@src/components/Toggle/hooks/useThemeToggle";
 
 import useModeTheme from "@src/hooks/useModeTheme";
 
-import * as Style from "./Toggle.style";
+import * as Style from "./ThemeToggle.style";
 
 interface Props {
   menuArr: string[];
 }
 
 // currentIdx ==> 지금 선택한 탭의 index
-function Toggle({ menuArr }: Props) {
-  const { theme, handleToggleTheme } = useModeTheme();
+function ThemeToggle({ menuArr }: Props) {
+  const { theme, handleChangeTheme } = useModeTheme();
 
-  const currentTab = theme === "LIGHT" ? 0 : 1;
-
-  const highlight = {
-    left: currentTab * 56,
-    width: 56,
-  };
-
-  const handleBtnClick: MouseEventHandler<HTMLLIElement> = (e) => {
-    const { id } = e.currentTarget;
-    const index = Number(id);
-    handleToggleTheme(index);
-  };
+  const { currentTab, highlight, handleBtnClick } = useThemeToggle({
+    theme,
+    handleChangeTheme,
+  });
 
   return (
     <Style.TabContainer>
@@ -45,4 +37,4 @@ function Toggle({ menuArr }: Props) {
   );
 }
 
-export default Toggle;
+export default ThemeToggle;

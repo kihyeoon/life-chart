@@ -2,7 +2,7 @@ import { routers } from "@src/Router";
 import { RouterProvider } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 
-import Toggle from "@src/components/Toggle/Toggle";
+import ThemeToggle from "@src/components/Toggle/ThemeToggle";
 
 import useModeTheme from "@src/hooks/useModeTheme";
 
@@ -18,7 +18,7 @@ function App() {
       theme={theme === THEME_KIND.LIGHT ? LIGHT_MODE_THEME : DARK_MODE_THEME}
     >
       <GlobalStyle />
-      <Toggle menuArr={["🌝", "🌚"]} />
+      <ThemeToggle menuArr={["🌝", "🌚"]} />
       <RouterProvider router={routers} />
     </ThemeProvider>
   );

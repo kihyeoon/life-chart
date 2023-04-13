@@ -1,18 +1,16 @@
-import Toggle from "./Toggle";
+import ThemeToggle from "./ThemeToggle";
 
 export default {
   title: "Components/Toggle",
-  component: Toggle,
+  component: ThemeToggle,
 };
 
 function Template(args) {
-  return <Toggle {...args} />;
+  return <ThemeToggle {...args} />;
 }
 
 export const PrimaryTemplate = Template.bind({});
 
 PrimaryTemplate.args = {
   menuArr: ["🌝", "🌚"],
-  currentIdx: 0,
-  onClick: () => {},
 };
