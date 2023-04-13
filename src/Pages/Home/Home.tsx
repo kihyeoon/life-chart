@@ -1,3 +1,4 @@
+import * as Style from "@src/pages/Home/Home.style";
 import { useNavigate } from "react-router-dom";
 
 import AgePicker from "@src/components/@shared/AgePicker/AgePicker";
@@ -7,8 +8,6 @@ import { Container } from "@src/components/Chart/Chart.style";
 import WeeksContainer from "@src/components/Chart/WeeksContainer/WeeksContainer";
 
 import { Week } from "@src/@utils/createWeeksArray";
-
-import * as Style from "./Home.style";
 
 function Home() {
   const navigate = useNavigate();
