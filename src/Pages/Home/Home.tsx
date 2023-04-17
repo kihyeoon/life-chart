@@ -31,8 +31,13 @@ function Home() {
     <Style.FormContainer onSubmit={handleSubmit}>
       <h1>인생표</h1>
       <br />
-      <h3>우리는 영원히 살 것처럼 행동하지만 사실 삶은 유한합니다.</h3>
-      <h3>100살을 산다고 가정하면 우리에겐 5,218주가 있습니다.</h3>
+      <h3>
+        인생은 소중하고 가치 있는 선물이지만, 우리는 때로 영원한 것처럼 여기곤
+        합니다.
+      </h3>
+      <h3>
+        100세의 생을 누린다고 해도, 우리는 단지 5,218주를 가지고 있습니다.
+      </h3>
       <br />
       <Container>
         <WeeksContainer weeksArray={defaultArray} />
