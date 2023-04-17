@@ -7,13 +7,15 @@ const { DefinePlugin } = require("webpack");
 
 const dotenv = require("dotenv");
 
-const env = dotenv.config().parsed;
+const isDevelopment = process.env.NODE_ENV !== "production";
+
+const envPath = isDevelopment ? ".env" : ".env.production";
+const env = dotenv.config({ path: envPath }).parsed || {};
+
 const envKeys = Object.keys(env).reduce((prev, next) => {
   prev[`process.env.${next}`] = JSON.stringify(env[next]);
   return prev;
 }, {});
-
-const isDevelopment = process.env.NODE_ENV !== "production";
 
 module.exports = {
   mode: process.env.NODE_ENV,
