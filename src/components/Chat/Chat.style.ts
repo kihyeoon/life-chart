@@ -2,13 +2,14 @@ import styled from "styled-components";
 
 export const ChatContainer = styled.div`
   position: fixed;
-  right: 2rem;
-  bottom: 2rem;
+  bottom: 20px;
+  right: 20px;
   width: 400px;
   height: 600px;
   border-radius: 12px;
   box-shadow: 0 0 20px ${({ theme }) => theme.COLOR.SHADOW};
   background-color: ${({ theme }) => theme.COLOR.CONTAINER.SECONDARY};
+  z-index: 999;
 `;
 
 export const ChatHeader = styled.div`
