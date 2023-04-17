@@ -16,7 +16,7 @@ const envKeys = Object.keys(env).reduce((prev, next) => {
 const isDevelopment = process.env.NODE_ENV !== "production";
 
 module.exports = {
-  mode: process.env.mode,
+  mode: process.env.NODE_ENV,
   entry: path.join(__dirname, "src/index.tsx"),
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -41,6 +41,14 @@ module.exports = {
           loader: "tsx",
           target: "esnext",
         },
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/,
+        type: "asset/resource",
+      },
+      {
+        test: /\.svg$/,
+        use: ["@svgr/webpack"],
       },
     ],
   },
