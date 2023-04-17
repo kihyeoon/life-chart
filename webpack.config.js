@@ -1,7 +1,17 @@
+/* eslint-disable no-param-reassign */
 /* eslint-disable @typescript-eslint/no-var-requires */
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
 const path = require("path");
+const { DefinePlugin } = require("webpack");
+
+const dotenv = require("dotenv");
+
+const env = dotenv.config().parsed;
+const envKeys = Object.keys(env).reduce((prev, next) => {
+  prev[`process.env.${next}`] = JSON.stringify(env[next]);
+  return prev;
+}, {});
 
 const isDevelopment = process.env.NODE_ENV !== "production";
 
@@ -36,8 +46,10 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./public/index.html",
+      template: path.join(__dirname, "public/index.html"),
+      favicon: path.join(__dirname, "public/favicon.ico"),
     }),
+    new DefinePlugin(envKeys),
     isDevelopment &&
       new ReactRefreshWebpackPlugin({
         overlay: false,
