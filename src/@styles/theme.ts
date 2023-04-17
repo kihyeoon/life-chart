@@ -64,7 +64,7 @@ export const DARK_MODE_THEME: DefaultTheme = {
       TERTIARY: COLORS.GREY[80],
     },
     CONTAINER: {
-      PRIMARY: COLORS.GREY[20],
+      PRIMARY: COLORS.GREY[90],
       SECONDARY: COLORS.GREY[85],
       TERTIARY: COLORS.GREY[80],
     },

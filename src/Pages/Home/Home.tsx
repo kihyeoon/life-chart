@@ -1,3 +1,4 @@
+import * as Style from "@src/pages/Home/Home.style";
 import { useNavigate } from "react-router-dom";
 
 import AgePicker from "@src/components/@shared/AgePicker/AgePicker";
@@ -7,8 +8,6 @@ import { Container } from "@src/components/Chart/Chart.style";
 import WeeksContainer from "@src/components/Chart/WeeksContainer/WeeksContainer";
 
 import { Week } from "@src/@utils/createWeeksArray";
-
-import * as Style from "./Home.style";
 
 function Home() {
   const navigate = useNavigate();
@@ -29,21 +28,31 @@ function Home() {
   }));
 
   return (
-    <Style.FormContainer onSubmit={handleSubmit}>
-      <h1>인생표</h1>
+    <Style.Container>
+      <Style.TitleContainer>
+        <img src="/logo.png" alt="로고" />
+        <h1>Life Chart</h1>
+      </Style.TitleContainer>
       <br />
-      <h3>우리는 영원히 살 것처럼 행동하지만 사실 삶은 유한합니다.</h3>
-      <h3>100살을 산다고 가정하면 우리에겐 5,218주가 있습니다.</h3>
+      <h3>
+        인생은 소중하고 가치 있는 선물이지만, 우리는 때로 영원한 것처럼 여기곤
+        합니다.
+      </h3>
+      <h3>
+        100세의 생을 누린다고 해도, 우리는 단지 5,218주를 가지고 있습니다.
+      </h3>
       <br />
       <Container>
         <WeeksContainer weeksArray={defaultArray} />
       </Container>
       <br />
       <h2>우리에게 남아있는 시간을 알아볼까요?</h2>
-      <DatePicker />
-      <AgePicker />
-      <Button type="submit">보러가기</Button>
-    </Style.FormContainer>
+      <Style.FormContainer onSubmit={handleSubmit}>
+        <DatePicker />
+        <AgePicker />
+        <Button type="submit">보러가기</Button>
+      </Style.FormContainer>
+    </Style.Container>
   );
 }
 
