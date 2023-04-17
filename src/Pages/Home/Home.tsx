@@ -28,8 +28,11 @@ function Home() {
   }));
 
   return (
-    <Style.FormContainer onSubmit={handleSubmit}>
-      <h1>인생표</h1>
+    <Style.Container>
+      <Style.TitleContainer>
+        <img src="/logo.png" alt="로고" />
+        <h1>Life Chart</h1>
+      </Style.TitleContainer>
       <br />
       <h3>
         인생은 소중하고 가치 있는 선물이지만, 우리는 때로 영원한 것처럼 여기곤
@@ -44,10 +47,12 @@ function Home() {
       </Container>
       <br />
       <h2>우리에게 남아있는 시간을 알아볼까요?</h2>
-      <DatePicker />
-      <AgePicker />
-      <Button type="submit">보러가기</Button>
-    </Style.FormContainer>
+      <Style.FormContainer onSubmit={handleSubmit}>
+        <DatePicker />
+        <AgePicker />
+        <Button type="submit">보러가기</Button>
+      </Style.FormContainer>
+    </Style.Container>
   );
 }
 
