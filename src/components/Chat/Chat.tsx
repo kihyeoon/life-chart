@@ -1,43 +1,30 @@
 /* eslint-disable react/no-array-index-key */
-import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useRef } from "react";
 
 import Button from "@src/components/@shared/Button/Button";
 import Message from "@src/components/Chat/Message";
 import useChatBot from "@src/components/Chat/useChatBot";
 
-import {
-  ChatBody,
-  ChatContainer,
-  ChatFooter,
-  ChatHeader,
-  ChatInput,
-  ChatTitle,
-  CloseButton,
-} from "./Chat.style";
+import * as Styled from "./Chat.style";
 
 interface Props {
   onClose: Dispatch<SetStateAction<boolean>>;
 }
 
 function Chat({ onClose }: Props) {
-  const [inputValue, setInputValue] = useState("");
-
   const { chatMessages, handleSendMessage } = useChatBot();
 
   const chatBodyRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(event.target.value);
-  };
-
-  const handleSubmit = () => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const inputValue = String(formData.get("message"));
     handleSendMessage(inputValue);
-    setInputValue("");
-  };
 
-  const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === "Enter") {
-      handleSubmit();
+    if (inputRef.current) {
+      inputRef.current.value = "";
     }
   };
 
@@ -48,12 +35,14 @@ function Chat({ onClose }: Props) {
   }, [chatMessages]);
 
   return (
-    <ChatContainer>
-      <ChatHeader>
-        <ChatTitle>채팅</ChatTitle>
-        <CloseButton onClick={() => onClose(false)}>&times;</CloseButton>
-      </ChatHeader>
-      <ChatBody ref={chatBodyRef}>
+    <Styled.ChatContainer>
+      <Styled.ChatHeader>
+        <Styled.ChatTitle>채팅</Styled.ChatTitle>
+        <Styled.CloseButton onClick={() => onClose(false)}>
+          &times;
+        </Styled.CloseButton>
+      </Styled.ChatHeader>
+      <Styled.ChatBody ref={chatBodyRef}>
         {chatMessages.map((message, index) => (
           <Message
             key={index}
@@ -61,18 +50,19 @@ function Chat({ onClose }: Props) {
             content={message.content}
           />
         ))}
-      </ChatBody>
-      <ChatFooter>
-        <ChatInput
-          value={inputValue}
-          onChange={handleChange}
-          onKeyPress={handleKeyPress}
+      </Styled.ChatBody>
+      <Styled.ChatForm onSubmit={handleSubmit}>
+        <Styled.ChatInput
+          ref={inputRef}
           placeholder="메시지를 입력하세요"
           max={200}
+          id="message"
+          name="message"
+          required
         />
-        <Button onClick={handleSubmit}>전송</Button>
-      </ChatFooter>
-    </ChatContainer>
+        <Button type="submit">전송</Button>
+      </Styled.ChatForm>
+    </Styled.ChatContainer>
   );
 }
 

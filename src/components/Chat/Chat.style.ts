@@ -41,7 +41,7 @@ export const ChatBody = styled.div`
   background-color: ${({ theme }) => theme.COLOR.CONTAINER.PRIMARY};
 `;
 
-export const ChatFooter = styled.div`
+export const ChatForm = styled.form`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -50,31 +50,12 @@ export const ChatFooter = styled.div`
 `;
 
 export const ChatInput = styled.input`
-  flex-grow: 1;
+  flex-grow: 0.95;
+  word-wrap: break-word;
   border: none;
   border-radius: 6px;
   padding: 0.5rem;
   font-size: ${({ theme }) => theme.FONT_SIZE.BODY};
   background-color: ${({ theme }) => theme.COLOR.CONTAINER.PRIMARY};
   color: ${({ theme }) => theme.COLOR.TEXT.DEFAULT};
-`;
-
-export const SendButton = styled.button`
-  margin-left: 1rem;
-  padding: 0.5rem;
-  background-color: ${({ theme }) => theme.COLOR.PRIMARY.DEFAULT};
-  border: none;
-  border-radius: 6px;
-  font-size: ${({ theme }) => theme.FONT_SIZE.BODY};
-  color: ${({ theme }) => theme.COLOR.TEXT.WHITE};
-  cursor: pointer;
-  transition: background-color 0.2s;
-
-  &:hover {
-    background-color: ${({ theme }) => theme.COLOR.PRIMARY.HOVER};
-  }
-
-  &:active {
-    background-color: ${({ theme }) => theme.COLOR.PRIMARY.ACTIVE};
-  }
 `;
