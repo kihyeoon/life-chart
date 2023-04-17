@@ -4,7 +4,7 @@
 import { ChatCompletionRequestMessage, Configuration, OpenAIApi } from "openai";
 import { useState } from "react";
 
-const apiKey = "s";
+const apiKey = process.env.REACT_APP_OPENAI_API_KEY;
 
 const configuration = new Configuration({
   apiKey,
@@ -90,7 +90,7 @@ const useChatBot = () => {
   };
 
   return {
-    chatMessages: chatMessages.slice(0),
+    chatMessages: chatMessages.slice(2),
     handleSendMessage,
   };
 };
