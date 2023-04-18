@@ -1,7 +1,8 @@
-import * as Style from "@src/pages/Main/Main.style";
 import { useLocation } from "react-router-dom";
 
 import Chart from "@src/components/Chart/Chart";
+
+import * as Style from "./Main.style";
 
 interface LocationState {
   state: { birthDay: string; lifeExpectancy: string };
