@@ -31,7 +31,7 @@ function Home() {
   return (
     <Style.Container>
       <Style.TitleContainer>
-        <img src="/logo.png" alt="로고" />
+        {/* <img src="assets/logo.png" alt="logo" /> */}
         <h1>Life Chart</h1>
       </Style.TitleContainer>
       <br />
