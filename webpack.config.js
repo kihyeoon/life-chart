@@ -22,7 +22,8 @@ module.exports = {
   entry: path.join(__dirname, "src/index.tsx"),
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "[hash].js",
+    filename: "[name].[contenthash].js",
+    chunkFilename: "[name].[contenthash].chunk.js",
     publicPath: "/",
     clean: true,
   },
@@ -57,7 +58,6 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.join(__dirname, "public/index.html"),
-      favicon: path.join(__dirname, "public/favicon.ico"),
     }),
     new DefinePlugin(envKeys),
     isDevelopment &&
