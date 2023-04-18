@@ -30,7 +30,7 @@ function Home() {
   return (
     <Style.Container>
       <Style.TitleContainer>
-        <img src="assets/logo.png" alt="logo" />
+        {/* <img src="assets/logo.png" alt="logo" /> */}
         <h1>Life Chart</h1>
       </Style.TitleContainer>
       <br />
