@@ -3,19 +3,8 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
 const path = require("path");
-// const { DefinePlugin } = require("webpack");
-
-// const dotenv = require("dotenv");
 
 const isDevelopment = process.env.NODE_ENV !== "production";
-
-// const envPath = isDevelopment ? ".env" : ".env.production";
-// const env = dotenv.config({ path: envPath }).parsed || {};
-
-// const envKeys = Object.keys(env).reduce((prev, next) => {
-//   prev[`process.env.${next}`] = JSON.stringify(env[next]);
-//   return prev;
-// }, {});
 
 module.exports = {
   mode: process.env.NODE_ENV,
@@ -58,8 +47,8 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.join(__dirname, "public/index.html"),
+      // favicon: path.join(__dirname, "public/favicon.ico"),
     }),
-    // new DefinePlugin(envKeys),
     isDevelopment &&
       new ReactRefreshWebpackPlugin({
         overlay: false,
