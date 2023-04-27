@@ -1,6 +1,8 @@
-import Home from "@src/Pages/Home/Home";
-import Main from "@src/Pages/Main/Main";
+import Home from "@src/pages/Home/Home";
+import Main from "@src/pages/Main/Main";
 import { createBrowserRouter } from "react-router-dom";
+
+import ChatBotLayout from "@src/components/Chat/ChatBotLayout";
 
 export const routers = createBrowserRouter([
   {
@@ -9,6 +11,10 @@ export const routers = createBrowserRouter([
   },
   {
     path: "/main",
-    element: <Main />,
+    element: (
+      <ChatBotLayout>
+        <Main />
+      </ChatBotLayout>
+    ),
   },
 ]);

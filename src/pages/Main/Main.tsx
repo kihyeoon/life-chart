@@ -1,8 +1,8 @@
-import { useLocation } from "react-router-dom";
+import * as Style from "@src/pages/Main/Main.style";
+import { useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import Chart from "@src/components/Chart/Chart";
-
-import * as Style from "./Main.style";
 
 interface LocationState {
   state: { birthDay: string; lifeExpectancy: string };
@@ -10,6 +10,19 @@ interface LocationState {
 
 function Main() {
   const { state } = useLocation() as LocationState;
+  const navigate = useNavigate();
+
+  // state가 없으면 홈으로 이동
+  useEffect(() => {
+    if (!state) {
+      navigate("/");
+    }
+  }, [state, navigate]);
+
+  if (!state) {
+    return null;
+  }
+
   const { birthDay, lifeExpectancy } = state;
 
   return (
